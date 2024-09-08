@@ -80,6 +80,7 @@ public class GetLabWork {
             }
             if (dif == "INSANE") {
                 labWork.setDifficulty(Difficulty.INSANE);
+
             }
             if (dif == "HOPELESS") {
                 labWork.setDifficulty(Difficulty.HOPELESS);
