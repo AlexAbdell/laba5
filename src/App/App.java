@@ -11,7 +11,6 @@ import java.util.*;
 
 public class App {
     public List<String> historyCommand = new ArrayList<String>();
-    ;
     public Scanner scanner = new Scanner(System.in);
     public Map<String, Command> commands = new HashMap<String, Command>();
     public TreeSet<LabWork> labWorks = new TreeSet<LabWork>();
@@ -26,6 +25,7 @@ public class App {
         commands.put("remove_by_id", new RemoveByIdCommand(this));
         commands.put("update", new UpdateCommand(this));
         commands.put("history", new HistoryCommand(this));
+        commands.put("max_by_difficulty", new MaxByDifficultyCommand(this));
     }
 
     public void run() {
