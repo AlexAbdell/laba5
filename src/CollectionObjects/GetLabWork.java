@@ -28,68 +28,62 @@ public class GetLabWork {
             }
             labWork.setName(name);
         } catch (Exception e) {
-            System.out.print(e.getMessage());
+            System.out.println(e.getMessage());
             return null;
         }
 
         try {
             System.out.print("Введите баллы лабораторной работы: ");
-            Float minimalpoint = this.scanner.nextFloat();
+            String line = this.scanner.nextLine();
+            Float minimalpoint = Float.valueOf(line);
             if (minimalpoint <= 0) {
                 throw new Exception("Балл должен быть больше 0!");
             }
             labWork.setMinimalPoint(minimalpoint);
         } catch (Exception e) {
-            System.out.print(e.getMessage());
+            System.out.println(e.getMessage());
             return null;
         }
 
         try {
-            System.out.print("Введите координаты: ");
-            Coordinates coordinates = new Coordinates();
+            System.out.println("Введите координаты: ");
             GetCoordinates getCoordinates = new GetCoordinates(this.scanner);
-            getCoordinates.build(coordinates);
+            labWork.setCoordinates(getCoordinates.build());
         } catch (Exception e) {
-            System.out.print(e.getMessage());
+            System.out.println(e.getMessage());
             return null;
         }
 
         try {
             System.out.print("Введите наcтройку работы: ");
-            Long tunedInWorks = this.scanner.nextLong();
+            String line1 = this.scanner.nextLine();
+            Long tunedInWorks = Long.valueOf(line1);
             if (tunedInWorks == null) {
                 throw new Exception("Настройка работы не может быть null!");
             }
             labWork.setTunedInWorks(tunedInWorks);
         } catch (Exception e) {
-            System.out.print(e.getMessage());
+            System.out.println(e.getMessage());
             return null;
         }
 
         try {
-            System.out.print("Введите сложность лабораторной работы (EASY, NORMAL, IMPOSSIBLE, INSANE, HOPELESS):");
-            String dif = this.scanner.nextLine();
-            if (dif == "NORMAL") {
-                labWork.setDifficulty(Difficulty.NORMAL);
-            }
-            if (dif == "EASY") {
-                labWork.setDifficulty(Difficulty.EASY);
-            }
-            if (dif == "IMPOSSIBLE") {
-                labWork.setDifficulty(Difficulty.IMPOSSIBLE);
-            }
-            if (dif == "INSANE") {
-                labWork.setDifficulty(Difficulty.INSANE);
-
-            }
-            if (dif == "HOPELESS") {
-                labWork.setDifficulty(Difficulty.HOPELESS);
-            } else{
-                throw new Exception("Неверный ввод!");
-            }
+            System.out.println("Введите сложность лабораторной работы (EASY, NORMAL, IMPOSSIBLE, INSANE, HOPELESS): ");
+            String line2 = this.scanner.nextLine().toUpperCase();
+            Difficulty difficulty = Difficulty.valueOf(line2);
+            labWork.setDifficulty(difficulty);
 
         } catch (Exception e) {
-            System.out.print(e.getMessage());
+            System.out.println("Неверный ввод!");
+            System.out.println(e.getMessage());
+            return null;
+        }
+
+        try {
+            GetDiscipline getDiscipline = new GetDiscipline(this.scanner);
+            labWork.setDiscipline(getDiscipline.build());
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
             return null;
         }
         return labWork;

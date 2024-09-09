@@ -10,6 +10,8 @@ import java.util.Scanner;
 import java.util.*;
 
 public class App {
+    public List<String> historyCommand = new ArrayList<String>();
+    ;
     public Scanner scanner = new Scanner(System.in);
     public Map<String, Command> commands = new HashMap<String, Command>();
     public TreeSet<LabWork> labWorks = new TreeSet<LabWork>();
@@ -23,6 +25,7 @@ public class App {
         commands.put("clear", new ClearCommand(this));
         commands.put("remove_by_id", new RemoveByIdCommand(this));
         commands.put("update", new UpdateCommand(this));
+        commands.put("history", new HistoryCommand(this));
     }
 
     public void run() {
@@ -39,6 +42,12 @@ public class App {
                     continue;
                 }
                 command.Handle(commandArgs);
+                if (historyCommand.size() < 15) {
+                    historyCommand.add(commandName);
+                } else {
+                    historyCommand.remove(0);
+                    historyCommand.add(commandName);
+                }
             }
         } catch (Throwable e) {
             System.out.println(e.getMessage());
@@ -46,7 +55,7 @@ public class App {
     }
 
     public LabWork getLastLabwork() {
-        if (labWorks.size() == 0){
+        if (labWorks.size() == 0) {
             return null;
         }
         return this.labWorks.last();

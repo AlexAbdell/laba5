@@ -10,10 +10,9 @@ import CollectionObjects.LabWork;
 
 public class RemoveByIdCommand extends AbstractCommand implements Command {
     public void Handle(List<String> a) {
-        System.out.println("Введите id объекта коллекции");
-        long id = this.app.scanner.nextLong();
+        String id = a.get(0);
         for (LabWork lab : this.app.labWorks) {
-            if (lab.getId() == id) {
+            if (lab.getId() == Long.valueOf(id)) {
                 this.app.labWorks.remove(lab);
                 System.out.println("Объект коллекции был успешно удален");
                 return;

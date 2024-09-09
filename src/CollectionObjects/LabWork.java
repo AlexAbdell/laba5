@@ -91,6 +91,9 @@ public class LabWork implements Comparable<LabWork> {
 
     @Override
     public String toString() {
-        return "id - " + id + "\n" + "name - " + name + "\n" + "--------------------";
+        return "Id - " + id + "\n" + "Name - " + name + "\n" + "Coordinates - "
+                + coordinates.toString() + "\n"+ "Creation date - " + creationDate + "\n"+ "Minimal point - "
+                + minimalPoint + "\n"+ "Tuned in works - " + name + "\n" + "Difficulty - " + difficulty
+                + "\n" + "Discipline - " + discipline + "\n" + "--------------------";
     }
 }

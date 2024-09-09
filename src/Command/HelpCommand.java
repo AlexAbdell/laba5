@@ -15,7 +15,11 @@ public class HelpCommand extends AbstractCommand implements Command {
         for (Map.Entry<String, Command> entry : this.app.commands.entrySet()) {
             String commandName = entry.getKey();
             Command command = entry.getValue();
-            System.out.println(commandName + " - " + command.getDescription());
+            if (commandName == "remove_by_id" || commandName == "update"){
+                System.out.println(commandName + " id - " + command.getDescription());
+            }else{
+                System.out.println(commandName + " - " + command.getDescription());
+            }
         }
 
     }

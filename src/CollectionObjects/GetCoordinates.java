@@ -9,11 +9,13 @@ public class GetCoordinates {
         this.scanner = scanner;
     }
 
-    public void build(Coordinates coordinates) {
+    public Coordinates build() {
+        Coordinates coordinates = new Coordinates();
 
         try {
             System.out.print("Введите x: ");
-            Double x = this.scanner.nextDouble();
+            String line = this.scanner.nextLine();
+            Double x = Double.valueOf(line);
             if (x == null) {
                 throw new Exception("Значение x не может быть null!");
             }
@@ -21,7 +23,8 @@ public class GetCoordinates {
 
 
             System.out.print("Введите y: ");
-            Float y = this.scanner.nextFloat();
+            String line1 = this.scanner.nextLine();
+            Float y = Float.valueOf(line1);
             if (y == null || y < -516) {
                 throw new Exception("Значение y не может быть меньше -516");
             }
@@ -29,5 +32,6 @@ public class GetCoordinates {
         } catch (Exception e) {
             throw new RuntimeException(e);
         }
+        return coordinates;
     }
 }

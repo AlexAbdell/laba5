@@ -3,39 +3,35 @@ package CollectionObjects;
 import java.util.Scanner;
 
 public class GetDiscipline {
-    public void build(Discipline discipline) {
-        Scanner scanner = new Scanner(System.in);
+    Scanner scanner;
+    public GetDiscipline(Scanner scanner){
+        this.scanner = scanner;
+    }
+    public Discipline build() {
+        Discipline discipline = new Discipline();
 
-        while (true) {
-            try {
-                System.out.print("Введите название дисциплины: ");
-                String name = scanner.nextLine();
-                if (name == null || name.isEmpty()) {
-                    System.out.println("Название дисциплины не может быть null или пустой строкой!");
-                } else {
-                    discipline.setName(name);
-                    break;
-                }
-            } catch (NumberFormatException e) {
-                System.out.print("Ошибка!!! Вводить надо тип String.");
+
+        try {
+            System.out.print("Введите название дисциплины: ");
+            String name = this.scanner.nextLine();
+            if (name == null || name.isEmpty()) {
+                throw new Exception("Название дисциплины не может быть null или пустой строкой!");
             }
+            discipline.setName(name);
+        } catch (Exception e) {
+            throw new RuntimeException(e);
         }
-
-        while (true) {
-
-            try {
-                System.out.print("Введите лекторские часы: ");
-                Long lectureHours = Long.parseLong(scanner.nextLine());
-                if (lectureHours < 1) {
-                    System.out.print("Ошибка!!! Лекторские часы не могут быть меньше 1.");
-                } else {
-                    discipline.setLectureHours(lectureHours);
-                    break;
-                }
-            } catch (NumberFormatException e) {
-                System.out.println("Ошибка!!! Вводить надо тип Long.");
-
+        try {
+            System.out.print("Введите лекторские часы: ");
+            String line = (this.scanner.nextLine());
+            Long lectureHours = Long.valueOf(line);
+            if (lectureHours < 1) {
+                throw  new Exception("Ошибка!!! Лекторские часы не могут быть меньше 1.");
             }
+            discipline.setLectureHours(lectureHours);
+        } catch (Exception e) {
+            throw new RuntimeException(e);
         }
+        return discipline;
     }
 }

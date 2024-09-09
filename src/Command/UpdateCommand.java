@@ -1,33 +1,31 @@
 package Command;
 
 import App.App;
+import CollectionObjects.GetLabWork;
 import CollectionObjects.LabWork;
+
 import java.util.List;
 
 
-public class UpdateCommand extends AbstractCommand implements Command{
+public class UpdateCommand extends AbstractCommand implements Command {
     public void Handle(List<String> a) throws Exception {
-        System.out.println("Введите id объекта коллекции");
-        long id = this.app.scanner.nextLong();
-        System.out.println("Введите поле элемента коллекции");
-        String po = this.app.scanner.nextLine();
+        String id = a.get(0);
         for (LabWork lab : this.app.labWorks) {
-            if (lab.getId() == id){
-                if (po == "name"){
-                    System.out.println("Введите название лабораторной работы");
-                    lab.setName(this.app.scanner.nextLine());
-                    return;
-                }
+            if (lab.getId() == Long.valueOf(id)) {
+                this.app.labWorks.remove(lab);
+                GetLabWork builder = new GetLabWork(this.app.scanner);
+                LabWork labWork = builder.build(Long.valueOf(id));
+                return;
             }
+            System.out.println("Объект коллекции не найден");
         }
-        System.out.println("Объект коллекции не найден");
     }
 
     public String getDescription() {
         return "Обновить значение элемента коллекции по id";
     }
 
-    public UpdateCommand(App app){
+    public UpdateCommand(App app) {
         super(app);
     }
 }
