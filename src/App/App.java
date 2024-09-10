@@ -1,5 +1,6 @@
 package App;
 
+import CollectionObjects.Difficulty;
 import CollectionObjects.LabWork;
 import Command.*;
 
@@ -10,6 +11,7 @@ import java.util.Scanner;
 import java.util.*;
 
 public class App {
+    public TreeSet<Difficulty> difficulties = new TreeSet<Difficulty>();
     public List<String> historyCommand = new ArrayList<String>();
     public Scanner scanner = new Scanner(System.in);
     public Map<String, Command> commands = new HashMap<String, Command>();
@@ -26,6 +28,15 @@ public class App {
         commands.put("update", new UpdateCommand(this));
         commands.put("history", new HistoryCommand(this));
         commands.put("max_by_difficulty", new MaxByDifficultyCommand(this));
+        commands.put("filter_greater_than_difficulty", new FilterGreaterThanDifficultyCommand(this));
+        commands.put("save", new SaveCommand(this));
+        commands.put("exit", new ExitCommand(this));
+
+        difficulties.add(Difficulty.EASY);
+        difficulties.add(Difficulty.IMPOSSIBLE);
+        difficulties.add(Difficulty.INSANE);
+        difficulties.add(Difficulty.NORMAL);
+        difficulties.add(Difficulty.HOPELESS);
     }
 
     public void run() {

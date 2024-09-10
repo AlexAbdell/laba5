@@ -17,7 +17,14 @@ public class HelpCommand extends AbstractCommand implements Command {
             Command command = entry.getValue();
             if (commandName == "remove_by_id" || commandName == "update"){
                 System.out.println(commandName + " id - " + command.getDescription());
-            }else{
+            }
+            if (commandName == "filter_less_than_discipline"){
+                System.out.println(commandName + " discipline - " + command.getDescription());
+            }
+            if (commandName == "filter_greater_than_difficulty"){
+                System.out.println(commandName + " difficulty - " + command.getDescription());
+            }
+            else{
                 System.out.println(commandName + " - " + command.getDescription());
             }
         }
