@@ -5,7 +5,7 @@ import java.util.Scanner;
 public class GetCoordinates {
     Scanner scanner;
 
-    public GetCoordinates(Scanner scanner){
+    public GetCoordinates(Scanner scanner) {
         this.scanner = scanner;
     }
 

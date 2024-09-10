@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<LabWorks>
+    <LabWork>
+        <id>1</id>
+        <name>1</name>
+        <creationDate>2024-09-10T22:34:30.224095600+03:00[Europe/Moscow]</creationDate
+        <coordinates>x = 1.0; y = 1.0</coordinates>
+        <difficulty>EASY</difficulty>
+        <discipline>Название дисциплины: 1; Лекторские часы: 1</discipline>
+        <minimalPoint>1.0</minimalPoint>
+        <tunedInWorks>1</tunedInWorks>
+    </LabWork>
+</LabWorks>
