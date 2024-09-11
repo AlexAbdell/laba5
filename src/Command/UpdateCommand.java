@@ -12,9 +12,9 @@ public class UpdateCommand extends AbstractCommand implements Command {
         String id = a.get(0);
         for (LabWork lab : this.app.labWorks) {
             if (lab.getId() == Long.valueOf(id)) {
-                this.app.labWorks.remove(lab);
                 GetLabWork builder = new GetLabWork(this.app.scanner);
                 LabWork labWork = builder.build(Long.valueOf(id));
+                this.app.labWorks.remove(lab);
                 return;
             }
             System.out.println("Объект коллекции не найден");
