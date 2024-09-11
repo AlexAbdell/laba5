@@ -68,7 +68,7 @@ public class GetLabWork {
         }
 
         try {
-            System.out.println("Введите сложность лабораторной работы (EASY, NORMAL, IMPOSSIBLE, INSANE, HOPELESS): ");
+            System.out.println("Введите сложность лабораторной работы (NORMAL, INSANE, HOPELESS): ");
             String line2 = this.scanner.nextLine().toUpperCase();
             Difficulty difficulty = Difficulty.valueOf(line2);
             labWork.setDifficulty(difficulty);

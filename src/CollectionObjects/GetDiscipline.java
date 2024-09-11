@@ -22,13 +22,13 @@ public class GetDiscipline {
             throw new RuntimeException(e);
         }
         try {
-            System.out.print("Введите лекторские часы: ");
+            System.out.print("Введите колличество работ: ");
             String line = (this.scanner.nextLine());
-            Long lectureHours = Long.valueOf(line);
-            if (lectureHours < 1) {
+            Long labsCount = Long.valueOf(line);
+            if (labsCount< 1) {
                 throw  new Exception("Ошибка!!! Лекторские часы не могут быть меньше 1.");
             }
-            discipline.setLectureHours(lectureHours);
+            discipline.setLabsCount(labsCount);
         } catch (Exception e) {
             throw new RuntimeException(e);
         }

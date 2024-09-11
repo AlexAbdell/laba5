@@ -4,6 +4,7 @@ import CollectionObjects.Difficulty;
 import CollectionObjects.LabWork;
 import Command.*;
 
+import java.io.File;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.NoSuchElementException;
@@ -32,9 +33,9 @@ public class App {
         commands.put("filter_greater_than_difficulty", new FilterGreaterThanDifficultyCommand(this));
         commands.put("save", new SaveCommand(this));
         commands.put("exit", new ExitCommand(this));
+        commands.put("execute_script", new ExecuteScriptCommand(this));
 
-        difficulties.add(Difficulty.EASY);
-        difficulties.add(Difficulty.IMPOSSIBLE);
+
         difficulties.add(Difficulty.INSANE);
         difficulties.add(Difficulty.NORMAL);
         difficulties.add(Difficulty.HOPELESS);
