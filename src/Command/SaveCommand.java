@@ -1,7 +1,6 @@
 package Command;
 
 import App.App;
-import CollectionObjects.LabWork;
 import ToXML.LabWorkSaver;
 
 import java.util.List;

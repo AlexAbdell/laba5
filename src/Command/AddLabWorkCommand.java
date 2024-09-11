@@ -3,12 +3,13 @@ package Command;
 import App.App;
 import CollectionObjects.GetLabWork;
 import CollectionObjects.LabWork;
+
 import java.util.List;
 
 public class AddLabWorkCommand extends AbstractCommand implements Command {
 
     @Override
-    public void Handle(List<String> a) {
+    public void Handle(List<String> a) throws Exception {
         LabWork lastLabWork = this.app.getLastLabwork();
         long id = 1;
         if (lastLabWork != null) {

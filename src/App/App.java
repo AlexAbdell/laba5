@@ -28,6 +28,7 @@ public class App {
         commands.put("update", new UpdateCommand(this));
         commands.put("history", new HistoryCommand(this));
         commands.put("max_by_difficulty", new MaxByDifficultyCommand(this));
+//        commands.put("filter_less_than_discipline", new FilterLessThanDisciplineCommand(this));
         commands.put("filter_greater_than_difficulty", new FilterGreaterThanDifficultyCommand(this));
         commands.put("save", new SaveCommand(this));
         commands.put("exit", new ExitCommand(this));
